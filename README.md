@@ -1,16 +1,19 @@
-# my_flutter_mini_project
+# INFO_0: my_flutter_mini_project
 
-flutter project with likelion
+flutter project with LIKELION
 
-## Getting Started
+## INFO_1: It's a Demo Application for Trip
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## INFO_2: Screen Compositions
+1. Home
+    - Tabs
+    - actions
+2. About
+    - Tabs
+      *
+3. MyInfo
+    - Tabs
+      *
+4. Detail
+    - Tabs
+      *
