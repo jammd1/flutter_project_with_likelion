@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:my_flutter_mini_project/core/routes/app_routes.dart';
 import 'package:my_flutter_mini_project/models/trip_destination.dart';
 import 'package:my_flutter_mini_project/presentations/home/widgets/home_grid_item_widget.dart';
 
 class HomeGridWidget extends StatelessWidget {
   final List<TripDestination> destinations;
-  const HomeGridWidget({super.key, required this.destinations});
+
+  const HomeGridWidget({super.key, required this.destinations,});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +22,10 @@ class HomeGridWidget extends StatelessWidget {
       itemBuilder: (context, idx) {
         final destination = destinations[idx];
         return GestureDetector(
-          onTap: () => {},
-          child: HomeGridItemWidget(destination: destination),
+          onTap: (){
+            Navigator.pushNamed(context, AppRoutes.detail, arguments: destination);
+          },
+          child: HomeGridItemWidget(destination: destination, idx:  idx + 1,)
         );
       },
     );

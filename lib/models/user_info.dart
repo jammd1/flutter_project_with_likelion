@@ -24,4 +24,6 @@ class UserInfo {
       profileImagePath: userInfoMap['profileImagePath'],
     );
   }
+
+
 }

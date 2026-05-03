@@ -3,15 +3,13 @@ import 'package:my_flutter_mini_project/models/trip_destination.dart';
 
 class HomeGridItemWidget extends StatelessWidget {
   final TripDestination destination;
+  final int? idx;
 
 
 
-  const HomeGridItemWidget({super.key, required this.destination});
+  const HomeGridItemWidget({super.key, required this.destination, required this.idx});
   @override
   Widget build(BuildContext context) {
-    RegExp regExp = RegExp(r'(\d+\.?\d*)%');
-    final match = regExp.firstMatch(destination.discount);
-    final String? discountString = match?.group(0);
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -20,22 +18,32 @@ class HomeGridItemWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(4),
           ),
-          color: Colors.white,
+          color: Theme.of(context).cardColor,
           child: Container(
             padding: EdgeInsetsGeometry.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
-                    child: Image.asset(
+                    child: Image.network(
                       destination.imagePath,
                       fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return Container(
+                          color: Colors.grey,
+                          child: Icon(Icons.broken_image, color: Colors.red, size: 40,),
+                        );
+                      },
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) return child;
+                        return Center(child: CircularProgressIndicator());
+                      },
                     )
                 ),
                 Text(
                   destination.name,
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 14,
                       fontWeight: FontWeight.bold
                   ),
@@ -43,7 +51,7 @@ class HomeGridItemWidget extends StatelessWidget {
                 Text(
                   destination.discount,
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.onSurface,
                       fontSize: 12,
                       fontWeight: FontWeight.normal
                   ),
@@ -53,24 +61,26 @@ class HomeGridItemWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: -7,
-          top: -6,
+          left: -4,
+          top: -10,
           child: Stack(
             children: [
               Icon(
-                Icons.pentagon,
+                Icons.circle,
                 color: Colors.lightBlueAccent,
                 size: 50
               ),
               Positioned(
-                top: 15,
-                left: 8,
+                left: idx! > 9 ? 13:18,
+                top: 10,
                 child: Text(
+                  idx.toString(),
                   style: TextStyle(
                     color: Colors.white,
-                    fontWeight: FontWeight.w900
+                    fontWeight: FontWeight.w900,
+                    fontSize: 20
                   ),
-                  '-${discountString!}'
+
                 ),
               )
             ],

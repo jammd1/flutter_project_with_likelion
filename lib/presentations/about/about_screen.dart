@@ -11,8 +11,6 @@ class AboutScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('About'),
-        backgroundColor: Colors.white,
-        surfaceTintColor: Colors.white,
         elevation: 1,
         actions: [
           IconButton(
@@ -27,7 +25,6 @@ class AboutScreen extends StatelessWidget {
           ),
         ],
       ),
-      backgroundColor: Colors.white,
       body: OrientationBuilder(
         builder: (ctx, ortn) {
           if (ortn == Orientation.portrait) {
