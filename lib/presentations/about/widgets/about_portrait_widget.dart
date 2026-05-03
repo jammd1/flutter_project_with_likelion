@@ -34,13 +34,13 @@ class AboutPortraitWidget extends StatelessWidget{
               color: Colors.lightBlueAccent
             ),
           ),
-          SizedBox(height: 16,),
+          SizedBox(height: 10,),
           Text(
             '와 함께 세계 여행을 계획하고 관리하세요.',
             style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: Colors.black
+                color: Colors.lightBlueAccent
             ),
           ),
           SizedBox(height: 20,),
