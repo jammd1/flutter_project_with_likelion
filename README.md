@@ -24,10 +24,10 @@
   ### AI 여행 계획
   - Gemini AI(google_generative_ai) 기반 여행 일정 자동 생성
   - 입력 항목: 목적지, 여행 기간, 동반자 유형, 여행 스타일, 식사 선호도, 예산
-  - 생성된 일정 로컬 DB(SQLite)에 저장 및 조회
+  - 생성된 일정 로컬 DB(SharedPreferences)에 저장 및 조회
 
   ### 내 정보
-  - 사용자 프로필 정보 입력 및 저장 (shared_preferences)
+  - 사용자 프로필 정보 입력 및 저장 (sqflite)
   - 이미지 프로필 설정 (image_picker)
 
   ### About
