@@ -9,7 +9,7 @@ import '../models/day_plan.dart';
 class TripPlanningService {
   TripPlanningService._();
 
-  static const String _apiKey = 'AIzaSyBArzgMnqw0LOInV4d1NG8jCIVlZWE56P4';
+  static const String _apiKey = String.fromEnvironment('GEMINI_API_KEY');;
   static const String _storageKey = 'my_trip_plans';
 
   static final TripPlanningService instance = TripPlanningService._();
